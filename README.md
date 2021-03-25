@@ -26,4 +26,25 @@ En Windows se puede utilizar el *Github Desktop* https://desktop.github.com/ y a
 
 * Instalar Flask: `pip3 install flask`
 
-* A partir de aquí ya es posible comenzar a trabajar en el desarrollo de la web. Tras tarminar una sesión de trabajo se puede desactivar el entorno virtual con el comando `deactivate`. Cada vez que se inicie una sesión de trabajo se debe iniciar el entorno virtual con el comando ya conocido `. venv/bin/activate`
+* A partir de aquí ya es posible comenzar a trabajar en el desarrollo de la web. Tras tarminar una sesión de trabajo se puede desactivar el entorno virtual con el comando `deactivate`.
+  
+* Cada vez que se inicie una sesión de trabajo se debe iniciar el entorno virtual con el comando ya conocido `. venv/bin/activate`
+
+* Para correr la aplicación desde la terminal en modo depuración:
+    `export FLASK_APP=flaskr++`
+    `export FLASK_ENV=development`
+    `flask run`
+
+# Estructura de directorios
+
+El directorio del proyecto contendrá:
+
+* Un paquete de Python (_directorio_) con el código y archivos de la aplicación.
+  
+* Un _directorio_ con módulos de prueba.
+  
+* Un _directorio_ para el entorno virtual de Python (`venv`).
+  
+* Un _archivo_ de instalación indicando a Python cómo instalar el proyecto.
+
+* Un _archivo_ `.gitignore` para ignorar los archivos generados durante la ejecución.
