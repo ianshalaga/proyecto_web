@@ -2,18 +2,18 @@ Este repositorio es mi base de experimentación sobre desarrollo web.
 
 # Requerimientos:
 
-* Visual Studio Code (Editor de código):
-    Linux: descargar el .deb desde la página web oficial (https://code.visualstudio.com/) y usar un gestor de paquetes para instalarlo (doble clic en caso de tener uno configurado por defecto).
+* Visual Studio Code (Editor de código):  
+    Linux: descargar el .deb desde la página web oficial (https://code.visualstudio.com/) y usar un gestor de paquetes para instalarlo (doble clic en caso de tener uno configurado por defecto).  
     Windows: descargar el instalador e instalarlo.
-* Python3:
-    Linux: Suele venir instalado por defecto (si no: sudo apt install python3).
+* Python3:  
+    Linux: Suele venir instalado por defecto (si no: sudo apt install python3).  
     Windows: https://www.python.org/
-* Entornos virtuales de Python:
+* Entornos virtuales de Python:  
     Linux: `sudo apt install python3-venv`
-* Administrador de paquetes de Python:
+* Administrador de paquetes de Python:  
     Linux: `sudo apt install python3-pip`
-* Git (Sistema de control de versiones):
-    Linux: `sudo apt install git`
+* Git (Sistema de control de versiones):  
+    Linux: `sudo apt install git`  
     Windows: https://git-scm.com/
 
 
@@ -31,9 +31,11 @@ En Windows se puede utilizar el *Github Desktop* https://desktop.github.com/ y a
 * Cada vez que se inicie una sesión de trabajo se debe iniciar el entorno virtual con el comando ya conocido `. venv/bin/activate`
 
 * Para correr la aplicación desde la terminal en modo depuración:
-    `export FLASK_APP=flaskr++`
-    `export FLASK_ENV=development`
-    `flask run`
+    `export FLASK_APP=<nombre_del_paquete_de_python>`  
+    `export FLASK_ENV=development`  
+    `flask run`  
+
+* Para inicializar la base de datos: `flask init-db`
 
 # Estructura de directorios
 

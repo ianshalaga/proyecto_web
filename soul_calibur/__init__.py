@@ -34,4 +34,7 @@ def create_app(prueba_configuracion=None): # Esta función debe llamarse create_
     def hola():
         return 'Hola.'
 
+    from . import db # Incluye el archivo db.py desde el mismo directorio de este archivo
+    db.init_app(app) # Inicializa la base de datos
+
     return app

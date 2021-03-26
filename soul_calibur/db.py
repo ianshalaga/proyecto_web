@@ -22,7 +22,7 @@ def get_db():
             current_app.config['DATABASE'],
             detect_types=sqlite3.PARSE_DECLTYPES
         )
-        g.db.row_factory = sqlite3.Row
+        g.db.row_factory = sqlite3.Row # Filas como diccionarios donde la clave es el nombre de la columna
 
     return g.db
 
@@ -32,3 +32,23 @@ def close_db(e=None):
 
     if db is not None:
         db.close()
+
+
+def init_db():
+    db = get_db()
+
+    with current_app.open_resource('schema.sql') as f:
+        db.executescript(f.read().decode('utf8'))
+
+
+@click.command('init-db') # Crea el comando init-db que llama a la función init_db()
+@with_appcontext
+def init_db_command():
+    '''Limpia los datos existentes y crea nuevas tablas.'''
+    init_db()
+    click.echo('Base de datos inicializada.')
+
+
+def init_app(app):
+    app.teardown_appcontext(close_db)
+    app.cli.add_command(init_db_command)
