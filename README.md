@@ -30,7 +30,7 @@ En Windows se puede utilizar el *Github Desktop* https://desktop.github.com/ y a
   
 * Cada vez que se inicie una sesión de trabajo se debe iniciar el entorno virtual con el comando ya conocido `. venv/bin/activate`
 
-* Para correr la aplicación desde la terminal en modo depuración:
+* Para correr la aplicación desde la terminal en modo depuración:  
     `export FLASK_APP=<nombre_del_paquete_de_python>`  
     `export FLASK_ENV=development`  
     `flask run`  

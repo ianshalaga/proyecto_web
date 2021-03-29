@@ -10,6 +10,7 @@ def create_app(prueba_configuracion=None): # Esta función debe llamarse create_
     '''
     Application factorty function
     '''
+
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY = 'dev',
@@ -29,12 +30,21 @@ def create_app(prueba_configuracion=None): # Esta función debe llamarse create_
     except OSError:
         pass
 
-    # Una página simple que dice Hola
-    @app.route('/hola')
+
+    # RUTAS
+    
+    # Los métodos route asocian una URL a una función
+    @app.route('/hola') # Una página simple que dice Hola
     def hola():
         return 'Hola.'
 
+
+    # IMPORTACIONES
+
     from . import db # Incluye el archivo db.py desde el mismo directorio de este archivo
     db.init_app(app) # Inicializa la base de datos
+
+    from . import auth # Incluye el archivo auth.py desde el mismo directorio de este archivo
+    app.register_blueprint(auth.bp) # Registra el blueprint
 
     return app
