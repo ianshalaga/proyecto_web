@@ -1,9 +1,10 @@
 <!DOCTYPE html> <!-- HTML5 -->
 <html lang="en">
 
+
 <!-- Encabezado -->
 
-<head>
+<head> <!-- Block header -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,34 +15,35 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
 </head>
 
+
 <!-- Cuerpo -->
 
-<body>
+<body> <!-- Block content -->
     <!-- <div class="bg-dark bg-gradient text-white"> -->
-        <nav>
-            <h1>Soul Calibur</h1>
-            <ul>
-                {% if g.user %}
-                <li><span>{{ g.user['username'] }}</span>
-                <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-                    {% else %}
-                <li><a href="{{ url_for('auth.register') }}">Register</a>
-                <li><a href="{{ url_for('auth.login') }}">Log In</a>
-                    {% endif %}
-            </ul>
-        </nav>
-        <section class="content">
-            <header>
-                {% block header %}{% endblock %}
-            </header>
+    <nav>
+        <h1>Soul Calibur</h1>
+        <ul>
+            {% if g.user %}
+            <li><span>{{ g.user['username'] }}</span>
+            <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+                {% else %}
+            <li><a href="{{ url_for('auth.register') }}">Register</a>
+            <li><a href="{{ url_for('auth.login') }}">Log In</a>
+                {% endif %}
+        </ul>
+    </nav>
+    <section class="content">
+        <header>
+            {% block header %}{% endblock %}
+        </header>
 
-            <!-- Mensajes de error -->
-            {% for message in get_flashed_messages() %}
-            <div class="flash">{{ message }}</div>
-            {% endfor %}
+        <!-- Mensajes de error -->
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
 
-            {% block content %}{% endblock %}
-        </section>
+        {% block content %}{% endblock %}
+    </section>
     <!-- </div> -->
 
     <!-- JavaScript -->

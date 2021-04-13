@@ -33,10 +33,10 @@ def create_app(prueba_configuracion=None): # Esta función debe llamarse create_
 
     # RUTAS
     
-    # Los métodos route asocian una URL a una función
-    @app.route('/hola') # Una página simple que dice Hola
-    def hola():
-        return 'Hola.'
+    # # Los métodos route asocian una URL a una función
+    # @app.route('/hola') # Una página simple que dice Hola
+    # def hola():
+    #     return 'Hola.'
 
 
     # IMPORTACIONES
@@ -46,5 +46,9 @@ def create_app(prueba_configuracion=None): # Esta función debe llamarse create_
 
     from . import auth # Incluye el archivo auth.py desde el mismo directorio de este archivo
     app.register_blueprint(auth.bp) # Registra el blueprint
+
+    from . import blog # Incluye el archivo blog.py desde el mismo directorio de este archivo
+    app.register_blueprint(blog.bp) # Registra el blueprint
+    app.add_url_rule('/', endpoint='index')
 
     return app
